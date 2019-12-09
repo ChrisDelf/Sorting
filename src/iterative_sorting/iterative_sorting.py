@@ -34,6 +34,21 @@ selection_sort(arr1)
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    i = 1
+    while i <= len(arr) - 1:
+        if arr[i - 1] > arr[i]:
+            # saving the elements for the swap
+            copy = arr[i]
+            # next we must acutally change the array
+            arr[i] = arr[i - 1]
+            # now put the copy of the smaller element into the correct position.
+            arr[i - 1] = copy
+            # need to reset the index to find the next element
+            i = 1
+        else:
+            # we check the next element to see if its sorted.
+            i += 1
+
 
     return arr
 
