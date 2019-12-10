@@ -5,7 +5,7 @@ def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
-    i = 0 #<<< this is pivot
+    i = 0
     a_index = 0
     b_index = 0
 
@@ -35,9 +35,17 @@ merge(arr1, arr4)
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
+    pivot = int(len(arr)/2) #This is the pivot
+    if len(arr) > 1:
+        # recursively call merge_sort() on LHS
+        left = merge_sort(arr[:pivot])
+        # recursively call merge_sort() on RHS
+        right = merge_sort(arr[pivot:])
+        # merge sorted pieces
+        arr = merge(left, right)
 
     return arr
-
+print(merge_sort([0, 1, 4, 7, 2, 10]))
 
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
